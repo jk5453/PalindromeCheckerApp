@@ -1,6 +1,7 @@
 
 
 
+
 import java.util.Scanner;
 
 
@@ -11,6 +12,14 @@ public class PalindromeCheckerApp {
     public static void main(String[] args) {
 
 
+        if (str.charAt(start) != str.charAt(end)) {
+            return false;
+        }
+
+
+        return isPalindrome(str, start + 1, end - 1);
+    }
+
     Scanner sc = new Scanner(System.in);
     System.out.print("Input string: ");
     String str = sc.nextLine();
@@ -20,6 +29,7 @@ public class PalindromeCheckerApp {
     System.out.println("Is Palindrome: " + result);
 
     sc.close();
+
 }
 
     private static boolean isPalindrome(String str, int start, int end) {
@@ -27,6 +37,8 @@ public class PalindromeCheckerApp {
         if (start >= end) {
             return true;
         }
+
+
 
         if (str.charAt(start) != str.charAt(end)) {
             return false;
