@@ -1,42 +1,55 @@
 
 import java.util.Scanner;
+import java.util.Stack;
 
 public class PalindromeCheckerApp {
 
 
 public static void main(String[] args){
 
-
     Scanner sc = new Scanner(System.in);
-    System.out.print("Enter a string: ");
+    System.out.print("Input: ");
     String input = sc.nextLine();
 
-    PalindromeService service = new PalindromeService();
+    PalindromeStrategy strategy = new StackStrategy();
 
-    boolean result = service.checkPalindrome(input);
+    // Start time
+    long startTime = System.nanoTime();
 
-    System.out.println("Is Palindrome: " + result);
+    boolean result = strategy.check(input);
+
+    // End time
+    long endTime = System.nanoTime();
+
+    long executionTime = endTime - startTime;
+
+    System.out.println("Is Palindrome?: " + result);
+    System.out.println("Execution Time: " + executionTime + " ns");
 
     sc.close();
 }
 }
 
-// Service class containing palindrome logic
-class PalindromeService {
+// Strategy Interface
+interface PalindromeStrategy {
+    boolean check(String input);
+}
 
-    public boolean checkPalindrome(String input) {
+// Stack-based implementation
+class StackStrategy implements PalindromeStrategy {
 
-        String normalized = input.toLowerCase().replaceAll("[^a-z0-9]", "");
+    public boolean check(String input) {
 
-        int start = 0;
-        int end = normalized.length() - 1;
+        Stack<Character> stack = new Stack<>();
 
-        while (start < end) {
-            if (normalized.charAt(start) != normalized.charAt(end)) {
+        for (char c : input.toCharArray()) {
+            stack.push(c);
+        }
+
+        for (char c : input.toCharArray()) {
+            if (c != stack.pop()) {
                 return false;
             }
-            start++;
-            end--;
         }
 
         return true;
