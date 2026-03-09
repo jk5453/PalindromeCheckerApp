@@ -1,30 +1,44 @@
 
+
+
+
 import java.util.Scanner;
+
+
 
 public class PalindromeCheckerApp {
 
 
-public static void main(String[] args){
+    public static void main(String[] args) {
 
 
+        if (str.charAt(start) != str.charAt(end)) {
+            return false;
+        }
 
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Input string: ");
-        String str = sc.nextLine();
 
-        boolean result = isPalindrome(str, 0, str.length() - 1);
-
-        System.out.println("Is Palindrome: " + result);
-
-        sc.close();
+        return isPalindrome(str, start + 1, end - 1);
     }
 
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Input string: ");
+    String str = sc.nextLine();
+
+    boolean result = isPalindrome(str, 0, str.length() - 1);
+
+    System.out.println("Is Palindrome: " + result);
+
+    sc.close();
+
+}
 
     private static boolean isPalindrome(String str, int start, int end) {
 
         if (start >= end) {
             return true;
         }
+
+
 
         if (str.charAt(start) != str.charAt(end)) {
             return false;
@@ -33,6 +47,3 @@ public static void main(String[] args){
         return isPalindrome(str, start + 1, end - 1);
     }
 }
-
-
-
