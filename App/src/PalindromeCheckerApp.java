@@ -1,10 +1,11 @@
+
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.Stack;
-public class PalindromeCheckerApp {
+
+ public class PalindromeCheckerApp {
 
 
-public static void main(String[] args){
+   public static void main(String[] args){
 
     String input = "refer";
 
@@ -31,5 +32,3 @@ public static void main(String[] args){
     System.out.println("Is Palindrome?: " + isPalindrome);
 }
 }
-
-
