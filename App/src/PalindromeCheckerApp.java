@@ -1,11 +1,15 @@
-import java.util.ArrayDeque;
-import java.util.Deque;
+
+
+
 import java.util.Scanner;
-import java.util.Stack;
+
+
+
 public class PalindromeCheckerApp {
 
 
-public static void main(String[] args){
+    public static void main(String[] args) {
+
 
     Scanner sc = new Scanner(System.in);
     System.out.print("Input string: ");
@@ -31,6 +35,3 @@ public static void main(String[] args){
         return isPalindrome(str, start + 1, end - 1);
     }
 }
-
-
-
