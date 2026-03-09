@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -50,7 +49,5 @@ class StackStrategy implements PalindromeStrategy {
         return true;
     }
 }
-
-
 
 
