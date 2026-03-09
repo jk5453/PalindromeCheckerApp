@@ -1,37 +1,37 @@
 
+
+
+import java.util.Scanner;
+
+
+
 public class PalindromeCheckerApp {
 
 
     public static void main(String[] args) {
 
 
-        String input = "level";
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Input string: ");
+    String str = sc.nextLine();
 
+    boolean result = isPalindrome(str, 0, str.length() - 1);
 
-        LinkedList<Character> list = new LinkedList<>();
+    System.out.println("Is Palindrome: " + result);
 
+    sc.close();
+}
 
-        for (char c : input.toCharArray()) {
-            list.add(c);
+    private static boolean isPalindrome(String str, int start, int end) {
+
+        if (start >= end) {
+            return true;
         }
 
-  
-        boolean isPalindrome = true;
-
-
-        while (list.size() > 1) {
-            char first = list.removeFirst();
-            char last = list.removeLast();
-
-            if (first != last) {
-                isPalindrome = false;
-                break;
-            }
+        if (str.charAt(start) != str.charAt(end)) {
+            return false;
         }
 
-        System.out.println("Input: " + input);
-        System.out.println("Is Palindrome?: " + isPalindrome);
+        return isPalindrome(str, start + 1, end - 1);
     }
 }
-}}
-
