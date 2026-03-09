@@ -1,12 +1,8 @@
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.Stack;
+
 public class PalindromeCheckerApp {
 
 
     public static void main(String[] args) {
-
 
 
         String input = "level";
@@ -19,8 +15,9 @@ public class PalindromeCheckerApp {
             list.add(c);
         }
 
-        // Flag to track palindrome state
+  
         boolean isPalindrome = true;
+
 
         while (list.size() > 1) {
             char first = list.removeFirst();
@@ -36,4 +33,5 @@ public class PalindromeCheckerApp {
         System.out.println("Is Palindrome?: " + isPalindrome);
     }
 }
+}}
 
