@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -11,6 +10,7 @@ public static void main(String[] args){
     System.out.print("Input: ");
     String input = sc.nextLine();
 
+
     PalindromeStrategy strategy = new StackStrategy();
 
     // Start time
@@ -22,6 +22,12 @@ public static void main(String[] args){
     long endTime = System.nanoTime();
 
     long executionTime = endTime - startTime;
+
+    // Inject stack strategy
+    PalindromeStrategy strategy = new StackStrategy();
+
+    boolean result = strategy.check(input);
+
 
     System.out.println("Is Palindrome?: " + result);
     System.out.println("Execution Time: " + executionTime + " ns");
@@ -46,15 +52,10 @@ class StackStrategy implements PalindromeStrategy {
             stack.push(c);
         }
 
-        for (char c : input.toCharArray()) {
-            if (c != stack.pop()) {
-                return false;
-            }
         }
 
         return true;
     }
 }
-
 
 
