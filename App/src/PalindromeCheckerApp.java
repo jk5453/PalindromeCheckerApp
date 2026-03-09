@@ -7,30 +7,39 @@ public class PalindromeCheckerApp {
 public static void main(String[] args){
 
 
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Enter a string: ");
+    String input = sc.nextLine();
 
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Input string: ");
-        String str = sc.nextLine();
+    PalindromeService service = new PalindromeService();
 
-        boolean result = isPalindrome(str, 0, str.length() - 1);
+    boolean result = service.checkPalindrome(input);
 
-        System.out.println("Is Palindrome: " + result);
+    System.out.println("Is Palindrome: " + result);
 
-        sc.close();
-    }
+    sc.close();
+}
+}
 
+// Service class containing palindrome logic
+class PalindromeService {
 
-    private static boolean isPalindrome(String str, int start, int end) {
+    public boolean checkPalindrome(String input) {
 
-        if (start >= end) {
-            return true;
+        String normalized = input.toLowerCase().replaceAll("[^a-z0-9]", "");
+
+        int start = 0;
+        int end = normalized.length() - 1;
+
+        while (start < end) {
+            if (normalized.charAt(start) != normalized.charAt(end)) {
+                return false;
+            }
+            start++;
+            end--;
         }
 
-        if (str.charAt(start) != str.charAt(end)) {
-            return false;
-        }
-
-        return isPalindrome(str, start + 1, end - 1);
+        return true;
     }
 }
 
